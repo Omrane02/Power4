@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>À propos • Puissance 4</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>À propos</h1>
+  </header>
+  <main>
+    <div class="section">
+      <h2>Objectif du projet</h2>
+      <p>Ce projet implémente le jeu Puissance 4 jouable à deux en local. L’interface est en HTML/CSS, la logique et l’état sont gérés côté serveur en Go</p>
+    </div>
+ 
+    <div class="section">
+      <h2>Règles du jeu</h2>
+      <ul class="list">
+        <li>La grille fait 7 colonnes × 6 lignes.</li>
+        <li>Chaque tour, le joueur courant dépose un pion dans une colonne.</li>
+        <li>Un joueur gagne s’il aligne 4 pions horizontalement, verticalement ou en diagonale.</li>
+        <li>Si la grille est pleine sans alignement gagnant, la partie est nulle.</li>
+      </ul>
+    </div>
+    <div class="actions">
+      <a class="primary" href="/">Retour au jeu</a>
+    </div>
+  </main>
+</body>
+</html>
