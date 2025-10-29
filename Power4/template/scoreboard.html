@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Scores</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Scores cumulés</h1>
+  </header>
+  <main>
+    <table class="scores">
+      <thead>
+        <tr><th>Joueur</th><th>Victoires</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><span class="badge red">rouge</span></td><td>{{.Red}}</td></tr>
+        <tr><td><span class="badge yellow">jaune</span></td><td>{{.Yellow}}</td></tr>
+      </tbody>
+    </table>
+    <div class="actions">
+      <a class="primary" href="/">Retour au jeu</a>
+    </div>
+  </main>
+</body>
+</html>
+ 
+ 

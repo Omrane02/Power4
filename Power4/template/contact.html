@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Contact • Puissance 4</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Contact</h1>
+  </header>
+  <main>
+    <div class="section">
+      <h2>Envoyer un message</h2>
+      <form id="contactForm" class="contact-form">
+        <label>Votre nom
+          <input type="text" id="name" required>
+        </label>
+        <label>Votre message
+          <textarea id="message" rows="6" required></textarea>
+        </label>
+        <button class="primary" type="submit">Envoyer</button>
+      </form>
+      <p id="response" class="hint"></p>
+    </div>
+ 
+    <div class="actions">
+      <a class="primary" href="/">Retour au jeu</a>
+    </div>
+  </main>
+ 
+  <script>
+    const form = document.getElementById('contactForm');
+    const resp = document.getElementById('response');
+ 
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const message = document.getElementById('message').value.trim();
+ 
+      if (name && message) {
+        resp.textContent = `Merci ${name} pour ton message : "${message}"`;
+        form.reset();
+      } else {
+        resp.textContent = "Merci de remplir tous les champs avant d’envoyer.";
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Puissance 4</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Ligue des Champions 4</h1>
+    {{if .GameOver}}
+      {{if .IsDraw}}
+        <div class="status">Match nul</div>
+      {{else}}
+        <div class="status">
+          Victoire du joueur {{if eq .Winner "red"}}rouge{{else if eq .Winner "yellow"}}jaune{{end}}
+        </div>
+      {{end}}
+    {{else}}
+      <div class="status">
+        Tour du joueur : {{if eq .Current "red"}}rouge{{else if eq .Current "yellow"}}jaune{{end}}
+      </div>
+      {{if .MoveMessage}}<div class="hint">{{.MoveMessage}}</div>{{end}}
+    {{end}}
+  </header>
+
+  <main>
+    <div class="bar">
+      <form action="/reset" method="POST">
+        <button class="dropbtn" type="submit">↺ Rejouer</button>
+      </form>
+      <a class="dropbtn" href="/scoreboard">Scores</a>
+      <a class="dropbtn" href="/about">À propos</a>
+      <a class="dropbtn" href="/contact">Contact</a>
+    </div>
+
+    <form action="/play" method="POST">
+      <table class="board">
+        <tbody>
+        {{range $r, $row := .Board}}
+          <tr>
+            {{range $c, $cell := $row}}
+              <td class="slot">
+                <div class="disc {{$cell}}"></div>
+                <button class="colbtn" type="submit" name="col" value="{{$c}}" aria-label="Jouer colonne {{$c}}"></button>
+              </td>
+            {{end}}
+          </tr>
+        {{end}}
+        </tbody>
+      </table>
+    </form>
+  </main>
+</body>
+</html>
